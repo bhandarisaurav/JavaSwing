@@ -79,4 +79,24 @@ public class Database {
 
         return user;
     }
+
+
+    public boolean addUser(User user) throws SQLException {
+        boolean flag = true;
+        String query = "INSERT into user (`username`, `password`, `address`, `contact`) values (?,?,?,?)";
+        Connection connection = new Database().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(query);
+        try {
+            pstm.setString(1, user.getUsername());
+            pstm.setString(2, user.getPassword());
+            pstm.setString(3, user.getContact());
+            pstm.setString(4, user.getAddress());
+            if (pstm.execute()) {
+                flag = false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
 }
