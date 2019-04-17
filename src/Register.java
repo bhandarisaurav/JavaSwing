@@ -10,8 +10,10 @@ public class Register extends JFrame implements ActionListener {
     JPasswordField p1, p2;
 
     Register() {
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        setSize(screenSize.width, screenSize.height);
         setVisible(true);
-        setSize(700, 700);
+//        setSize(700, 700);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Register User");
@@ -30,19 +32,18 @@ public class Register extends JFrame implements ActionListener {
         tf3 = new JTextField();
         btn1 = new JButton("Register User");
         btn1.addActionListener(this);
-        l1.setBounds(100, 30, 400, 30);
-        l2.setBounds(80, 70, 200, 30);
-        l3.setBounds(80, 110, 200, 30);
-        l4.setBounds(80, 150, 200, 30);
-        l5.setBounds(80, 190, 200, 30);
-        l6.setBounds(80, 230, 200, 30);
-        tf1.setBounds(300, 70, 200, 30);
-        p1.setBounds(300, 110, 200, 30);
-        p2.setBounds(300, 150, 200, 30);
-        tf2.setBounds(300, 190, 200, 30);
-        tf3.setBounds(300, 230, 200, 30);
-
-        btn1.setBounds(100, 300, 150, 30);
+        l1.setBounds(680, 300, 400, 30);
+        l2.setBounds(650, 350, 200, 30);
+        l3.setBounds(650, 390, 200, 30);
+        l4.setBounds(650, 430, 200, 30);
+        l5.setBounds(650, 470, 200, 30);
+        l6.setBounds(650, 510, 200, 30);
+        tf1.setBounds(850, 350, 200, 30);
+        p1.setBounds(850, 390, 200, 30);
+        p2.setBounds(850, 430, 200, 30);
+        tf2.setBounds(850, 480, 200, 30);
+        tf3.setBounds(850, 520, 200, 30);
+        btn1.setBounds(850, 580, 150, 30);
         add(l1);
         add(l2);
         add(tf1);
