@@ -16,7 +16,9 @@
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 public class Database {
     Connection con = null;
@@ -98,5 +100,39 @@ public class Database {
             e.printStackTrace();
         }
         return flag;
+    }
+
+    public ArrayList<Teacher> getTeachers(){
+        ArrayList<Teacher> teachers = new ArrayList<Teacher>();
+        String query = "select * from teacher";
+        Connection connection = new Database().getConnection();
+        PreparedStatement pstm = null;
+        try {
+            pstm = connection.prepareStatement(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        Teacher teacher;
+        ResultSet rs;
+        try {
+            rs = Objects.requireNonNull(pstm).executeQuery();
+            while(rs.next()){
+
+                teacher = new Teacher(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("faculty"),
+                        rs.getString("address"),
+                        rs.getString("email")
+                );
+
+                teachers.add(teacher);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("teacher = " + teachers);
+        return teachers;
     }
 }

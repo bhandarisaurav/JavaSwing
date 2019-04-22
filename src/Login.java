@@ -64,8 +64,12 @@ public class Login extends JFrame implements ActionListener {
                 e1.printStackTrace();
             }
             if (user != null) {
-                JOptionPane.showMessageDialog(btn1, "Login Successful");
-
+                int input = JOptionPane.showOptionDialog(btn1, "Login Successful", "Login Successful", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
+                if (input == 0) {
+                    setVisible(false);
+                    dispose();
+                    new Index();
+                }
             } else {
                 JOptionPane.showMessageDialog(btn1, "Username / Password Error", "Username / Password Error", JOptionPane.ERROR_MESSAGE);
             }
