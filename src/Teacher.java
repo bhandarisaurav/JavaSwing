@@ -13,6 +13,10 @@ public class Teacher {
         this.email = email;
     }
 
+    public Teacher() {
+
+    }
+
 
     public int getId() {
         return id;

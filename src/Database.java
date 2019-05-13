@@ -102,7 +102,7 @@ public class Database {
         return flag;
     }
 
-    public ArrayList<Teacher> getTeachers(){
+    public ArrayList<Teacher> getTeachers() {
         ArrayList<Teacher> teachers = new ArrayList<Teacher>();
         String query = "select * from teacher";
         Connection connection = new Database().getConnection();
@@ -116,7 +116,7 @@ public class Database {
         ResultSet rs;
         try {
             rs = Objects.requireNonNull(pstm).executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
 
                 teacher = new Teacher(
                         rs.getInt("id"),
@@ -134,5 +134,45 @@ public class Database {
 
         System.out.println("teacher = " + teachers);
         return teachers;
+    }
+
+    public void deleteTeachers(String id) throws SQLException {
+        String query = "DELETE FROM teacher WHERE id = ?;";
+        Connection connection = new Database().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(query);
+        try {
+            pstm.setInt(1, Integer.parseInt(id));
+            pstm.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Teacher editTeacher() {
+        Teacher teacher = new Teacher();
+
+
+
+        return teacher;
+    }
+
+    public boolean addTeacher(Teacher teacher)throws SQLException{
+
+        boolean flag = true;
+        String query = "INSERT into teacher (`name`, `faculty`, `address`, `email`) values (?,?,?,?)";
+        Connection connection = new Database().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(query);
+        try {
+            pstm.setString(1, teacher.getName());
+            pstm.setString(2, teacher.getFaculty());
+            pstm.setString(3, teacher.getAddress());
+            pstm.setString(4, teacher.getEmail());
+            if (pstm.execute()) {
+                flag = false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return flag;
     }
 }
