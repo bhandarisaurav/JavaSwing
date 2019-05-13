@@ -83,7 +83,23 @@ public class Index extends JFrame implements ActionListener {
             public void actionPerformed(ActionEvent evt) {
                 String ID = JOptionPane.showInputDialog(null, "Enter the ID of the Record you want to delete?", null);
                 try {
-                    database.deleteTeachers(ID);
+                    boolean success = database.deleteTeachers(ID);
+
+                    if (success) {
+                        int input = JOptionPane.showOptionDialog(edit, "Data Deleted Successfully", "Delete Successful", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
+                        if (input == 0) {
+                            setVisible(false);
+                            dispose();
+                            new Index();
+                        }
+
+                    } else {
+                        JOptionPane.showMessageDialog(edit, "Data Delete Failed . Please Try again", "Delete Failed", JOptionPane.ERROR_MESSAGE);
+                        setVisible(false);
+                        dispose();
+                        new Index();
+                    }
+
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }

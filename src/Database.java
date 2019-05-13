@@ -22,7 +22,7 @@ import java.util.Objects;
 
 public class Database {
     Connection con = null;
-    private String DB_URL = "jdbc:mysql://localhost:3306/swing";
+    private String DB_URL = "jdbc:mysql://localhost:3306/javaswing";
     private String DB_USER = "root";
     private String DB_PASSWORD = "";
 
@@ -136,16 +136,20 @@ public class Database {
         return teachers;
     }
 
-    public void deleteTeachers(String id) throws SQLException {
+    public boolean deleteTeachers(String id) throws SQLException {
+        boolean flag = true;
         String query = "DELETE FROM teacher WHERE id = ?;";
         Connection connection = new Database().getConnection();
         PreparedStatement pstm = connection.prepareStatement(query);
         try {
             pstm.setInt(1, Integer.parseInt(id));
-            pstm.execute();
+            if (pstm.execute()) {
+                flag = false;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return flag;
     }
 
     public Teacher getTeacher(String id) throws SQLException {
