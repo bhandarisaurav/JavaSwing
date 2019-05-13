@@ -73,7 +73,7 @@ public class ADD {
                     try {
                         boolean result = database.addTeacher(teacher);
                         if (result) {
-                            int input = JOptionPane.showOptionDialog(add, "Data Added Successfully", "Addition Successful", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
+                            int input = JOptionPane.showOptionDialog(null, "Data Added Successfully", "Addition Successful", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
                             if (input == 0) {
                                 f.setVisible(false);
                                 f.dispose();
@@ -81,7 +81,7 @@ public class ADD {
                             }
 
                         } else {
-                            JOptionPane.showMessageDialog(add, "Data Addition Failed . Please Try again", "Registration Failed", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "Data Addition Failed . Please Try again", "Registration Failed", JOptionPane.ERROR_MESSAGE);
                             f.setVisible(false);
                             f.dispose();
                             new Index();

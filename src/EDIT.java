@@ -89,7 +89,7 @@ public class EDIT {
                         e.printStackTrace();
                     }
                     if (result) {
-                        int input = JOptionPane.showOptionDialog(edit, "Data Edited Successfully", "Edit Successful", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
+                        int input = JOptionPane.showOptionDialog(null, "Data Edited Successfully", "Edit Successful", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
                         if (input == 0) {
                             f.setVisible(false);
                             f.dispose();
@@ -97,7 +97,7 @@ public class EDIT {
                         }
 
                     } else {
-                        JOptionPane.showMessageDialog(edit, "Data Edit Failed . Please Try again", "Edit Failed", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Data Edit Failed . Please Try again", "Edit Failed", JOptionPane.ERROR_MESSAGE);
                         f.setVisible(false);
                         f.dispose();
                         new Index();

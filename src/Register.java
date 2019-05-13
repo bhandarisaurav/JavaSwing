@@ -16,14 +16,26 @@ public class Register extends JFrame implements ActionListener {
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Register User");
+
         l1 = new JLabel("User Registration Form");
-        l1.setForeground(Color.GRAY);
-        l1.setFont(new Font("Sans-Serif", Font.BOLD, 22));
+        l1.setForeground(Color.RED);
+        l1.setFont(new Font("Sans-Serif", Font.BOLD, 40));
+
         l2 = new JLabel("Username");
+        l2.setFont(new Font("Sans-Serif", Font.BOLD, 20));
+
         l3 = new JLabel("Create Password:");
+        l3.setFont(new Font("Sans-Serif", Font.BOLD, 20));
+
         l4 = new JLabel("Confirm Password:");
+        l4.setFont(new Font("Sans-Serif", Font.BOLD, 20));
+
         l5 = new JLabel("Address:");
+        l5.setFont(new Font("Sans-Serif", Font.BOLD, 20));
+
         l6 = new JLabel("Contact:");
+        l6.setFont(new Font("Sans-Serif", Font.BOLD, 20));
+
         tf1 = new JTextField();
         p1 = new JPasswordField();
         p2 = new JPasswordField();
@@ -31,19 +43,21 @@ public class Register extends JFrame implements ActionListener {
         tf3 = new JTextField();
         btn1 = new JButton("Register");
         btn2 = new JButton("Login");
-        l1.setBounds(680, 300, 400, 30);
+        btn1.setFont(new Font("Sans-Serif", Font.BOLD, 15));
+        btn2.setFont(new Font("Sans-Serif", Font.BOLD, 15));
+        l1.setBounds(680, 250, 800, 50);
         l2.setBounds(650, 350, 200, 30);
         l3.setBounds(650, 390, 200, 30);
         l4.setBounds(650, 430, 200, 30);
         l5.setBounds(650, 470, 200, 30);
         l6.setBounds(650, 510, 200, 30);
-        tf1.setBounds(850, 350, 200, 30);
-        p1.setBounds(850, 390, 200, 30);
-        p2.setBounds(850, 430, 200, 30);
-        tf2.setBounds(850, 480, 200, 30);
-        tf3.setBounds(850, 520, 200, 30);
-        btn1.setBounds(850, 580, 100, 30);
-        btn2.setBounds(960, 580, 80, 30);
+        tf1.setBounds(850, 350, 200, 40);
+        p1.setBounds(850, 390, 200, 40);
+        p2.setBounds(850, 430, 200, 40);
+        tf2.setBounds(850, 480, 200, 40);
+        tf3.setBounds(850, 520, 200, 40);
+        btn1.setBounds(850, 580, 100, 40);
+        btn2.setBounds(960, 580, 80, 40);
         add(l1);
         add(l2);
         add(tf1);
