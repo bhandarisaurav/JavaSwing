@@ -94,7 +94,7 @@ public class Index extends JFrame implements ActionListener {
                         }
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "Data Delete Failed . Please Try again", "Delete Failed", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Data Deletion Failed . Please Try again", "Delete Failed", JOptionPane.ERROR_MESSAGE);
                         setVisible(false);
                         dispose();
                         new Index();

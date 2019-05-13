@@ -132,7 +132,7 @@ public class Database {
             e.printStackTrace();
         }
 
-        System.out.println("teacher = " + teachers);
+//        System.out.println("teacher = " + teachers);
         return teachers;
     }
 
@@ -174,9 +174,8 @@ public class Database {
         return teacher;
     }
 
-    public boolean editTeacher(Teacher id) throws SQLException {
+    public boolean editTeacher(Teacher teacher) throws SQLException {
         boolean flag = true;
-        Teacher teacher = new Teacher();
         String query = "update teacher set name=?,faculty=?,address=?,email=? where id=?";
         Connection connection = new Database().getConnection();
         PreparedStatement pstm = connection.prepareStatement(query);
@@ -187,10 +186,6 @@ public class Database {
             pstm.setString(3, teacher.getAddress());
             pstm.setString(4, teacher.getEmail());
             pstm.setInt(5, teacher.getId());
-
-            System.out.println("----------------------");
-            System.out.println(teacher.getId());
-            System.out.println("----------------------");
             if (pstm.execute()) {
                 flag = false;
             }

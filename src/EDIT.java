@@ -9,12 +9,11 @@ import javax.swing.*;
 public class EDIT {
 
     EDIT(String id) throws SQLException {
-
-        System.out.println("id = " + id);
-
         Database database = new Database();
         Teacher teacher;
         teacher = database.getTeacher(id);
+        teacher.setId(Integer.parseInt(id));
+
 
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -65,7 +64,6 @@ public class EDIT {
                 Database database = new Database();
                 String email = t4.getText();
 
-                teacher.setId(Integer.parseInt(id));
                 teacher.setName(t1.getText());
                 teacher.setFaculty(t2.getText());
                 teacher.setAddress(t1.getText());
@@ -85,6 +83,7 @@ public class EDIT {
                 } else {
                     boolean result = false;
                     try {
+                        teacher.setId(Integer.parseInt(id));
                         result = database.editTeacher(teacher);
                     } catch (SQLException e) {
                         e.printStackTrace();
