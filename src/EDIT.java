@@ -20,6 +20,7 @@ public class EDIT {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(15, 2, 15, 15);
 //        gbc.weighty = 0.01;                 // allows vertical dispersion
+
         JLabel j1 = new JLabel("Name :");
         JLabel j2 = new JLabel("Faculty :");
         JLabel j3 = new JLabel("Address :");
