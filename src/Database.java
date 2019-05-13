@@ -148,12 +148,52 @@ public class Database {
         }
     }
 
-    public Teacher editTeacher() {
+    public Teacher getTeacher(String id) throws SQLException {
         Teacher teacher = new Teacher();
-
-
-
+        String query = "select * from teacher where id=?";
+        Connection connection = new Database().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(query);
+        try {
+            pstm.setInt(1, Integer.parseInt(id));
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                teacher.setId(rs.getInt("id"));
+                teacher.setName(rs.getString("name"));
+                teacher.setFaculty(rs.getString("faculty"));
+                teacher.setAddress(rs.getString("address"));
+                teacher.setEmail(rs.getString("email"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("teacher = " + teacher);
         return teacher;
+    }
+
+    public boolean editTeacher(Teacher id) throws SQLException {
+        boolean flag = true;
+        Teacher teacher = new Teacher();
+        String query = "update teacher set name=?,faculty=?,address=?,email=? where id=?";
+        Connection connection = new Database().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(query);
+
+        try {
+            pstm.setString(1, teacher.getName());
+            pstm.setString(2, teacher.getFaculty());
+            pstm.setString(3, teacher.getAddress());
+            pstm.setString(4, teacher.getEmail());
+            pstm.setInt(5, teacher.getId());
+
+            System.out.println("----------------------");
+            System.out.println(teacher.getId());
+            System.out.println("----------------------");
+            if (pstm.execute()) {
+                flag = false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return flag;
     }
 
     public boolean addTeacher(Teacher teacher)throws SQLException{

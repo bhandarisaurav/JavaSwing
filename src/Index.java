@@ -97,9 +97,11 @@ public class Index extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 String ID = JOptionPane.showInputDialog(null, "Enter the ID of the Record you want to edit?", null);
-                setVisible(false);
-                dispose();
-                new EDIT(ID);
+                try {
+                    new EDIT(ID);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
 
             }
         });
