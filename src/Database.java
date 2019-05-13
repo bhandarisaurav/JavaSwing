@@ -22,7 +22,7 @@ import java.util.Objects;
 
 public class Database {
     Connection con = null;
-    private String DB_URL = "jdbc:mysql://localhost:3306/javaswing";
+    private String DB_URL = "jdbc:mysql://localhost:3306/javaswing?useSSL=false";
     private String DB_USER = "root";
     private String DB_PASSWORD = "";
 
